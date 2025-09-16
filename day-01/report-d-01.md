@@ -1,4 +1,4 @@
-<div style="text-align: center;"> <img src="./public/badge.png" alt="badge"></div
+<div style="text-align: center;"> <img src="../public/badge.png" alt="badge"></div
 
 ---
 
