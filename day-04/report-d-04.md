@@ -24,143 +24,7 @@
 
 ---
 
-## Практические задания
-
-### Задание №1: Подсчет среднего значения
-
-**Цель**: Реализовать функцию, которая принимает переменное количество аргументов и вычисляет их среднее значение, игнорируя нечисловые аргументы.
-
-**Код задания**:
-
-```py
-def calculate_average(*args) -> float:
-    '''
-    Задание №1: Среднее значение из переменного количества аргументов.
-    '''
-    numbers = [arg for arg in args if isinstance(arg, (int, float))]
-    if not numbers:
-        return 0
-    return sum(numbers) / len(numbers)
-```
-
-**Пример использования**:
-
-```py
-print(calculate_average(1, 2, 3, 4, 5))            # 3.0
-print(calculate_average(1.5, 2.5, 'a', 3.5, 4.5))  # 3.0
-print(calculate_average(10, 20, 30, 40))           # 25.0
-```
-
-**Скриншот вывода в консоли**:
-
-![01](../public/day-04/part-02/01.png)
-
-### Задание №2: Обратная строка
-
-**Цель**: Реализовать функцию, которая принимает строку и возвращает новую строку с обратным порядком слов, где каждое слово записано задом наперёд.
-
-**Код задания**:
-
-```py
-def reverse_words(sentence: str) -> str:
-    '''
-    Задание №2: Принимает строку и возвращает новую строку с обратным порядком слов.
-    '''
-    words = sentence.split()
-    reversed_words = [word[::-1] for word in words]
-    return ' '.join(reversed_words)
-```
-
-**Пример использования**:
-
-```py
-print(reverse_words('Hello world'))        # olleH dlrow
-print(reverse_words('Python is awesome'))  # nohtyP si emosewa
-print(reverse_words('Привет мир'))         # тевирП рим
-```
-
-**Скриншот вывода в консоли**:
-
-![02](../public/day-04/part-02/02.png)
-
-### Задание №3: Палиндром ли?
-
-**Цель**: Реализовать функцию, которая проверяет, является ли строка палиндромом, игнорируя пробелы, знаки препинания и регистр.
-
-**Код задания**:
-
-```py
-import re
-
-def is_palindrome(text: str) -> bool:
-    '''
-    Задание №3: Проверяет, является ли строка палиндромом.
-    '''
-    cleaned_text = re.sub(r'[^\w]', '', text.lower())
-    return cleaned_text == cleaned_text[::-1]
-```
-
-**Пример использования**:
-
-```py
-print(is_palindrome('A man, a plan, a canal: Panama'))  # True
-print(is_palindrome('racecar'))  # True
-print(is_palindrome('hello'))    # False
-print(is_palindrome('А роза упала на лапу Азора'))  # True
-```
-
-**Скриншот вывода в консоли**:
-
-![03](../public/day-04/part-02/03.png)
-
-### Задание №4: Наибольшая общая подпоследовательность двух строк
-
-**Цель**: Реализовать функцию, которая находит наибольшую общую подпоследовательность двух строк.
-
-**Код задания**:
-
-```py
-def find_longest_subsequence(str1: str, str2: str) -> str:
-    '''
-    Задание №4: Находит наибольшую общую подпоследовательность двух строк.
-    '''
-    m, n = len(str1), len(str2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
-
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if str1[i - 1] == str2[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1] + 1
-            else:
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-
-    # Восстановление подпоследовательности
-    i, j = m, n
-    result = []
-    while i > 0 and j > 0:
-        if str1[i - 1] == str2[j - 1]:
-            result.append(str1[i - 1])
-            i -= 1
-            j -= 1
-        elif dp[i - 1][j] > dp[i][j - 1]:
-            i -= 1
-        else:
-            j -= 1
-
-    return ''.join(reversed(result))
-```
-
-**Пример использования**:
-
-```py
-print(find_longest_subsequence('ABCDGH', 'AEDFHR'))   # ADH
-print(find_longest_subsequence('AGGTAB', 'GXTXAYB'))  # GTAB
-print(find_longest_subsequence('abcde', 'ace'))       # ace
-```
-
-**Скриншот вывода в консоли**:
-
-![04](../public/day-04/part-02/04.png)
+## Практические задания (часть №1)
 
 ### Задание №1: Степени числа 2
 
@@ -402,3 +266,141 @@ def task9():
 **Скриншот вывода в консоли**:
 
 ![09](../public/day-04/part-01/09.png)
+
+## Практические задания (часть №2)
+
+### Задание №1: Подсчет среднего значения
+
+**Цель**: Реализовать функцию, которая принимает переменное количество аргументов и вычисляет их среднее значение, игнорируя нечисловые аргументы.
+
+**Код задания**:
+
+```py
+def calculate_average(*args) -> float:
+    '''
+    Задание №1: Среднее значение из переменного количества аргументов.
+    '''
+    numbers = [arg for arg in args if isinstance(arg, (int, float))]
+    if not numbers:
+        return 0
+    return sum(numbers) / len(numbers)
+```
+
+**Пример использования**:
+
+```py
+print(calculate_average(1, 2, 3, 4, 5))            # 3.0
+print(calculate_average(1.5, 2.5, 'a', 3.5, 4.5))  # 3.0
+print(calculate_average(10, 20, 30, 40))           # 25.0
+```
+
+**Скриншот вывода в консоли**:
+
+![01](../public/day-04/part-02/01.png)
+
+### Задание №2: Обратная строка
+
+**Цель**: Реализовать функцию, которая принимает строку и возвращает новую строку с обратным порядком слов, где каждое слово записано задом наперёд.
+
+**Код задания**:
+
+```py
+def reverse_words(sentence: str) -> str:
+    '''
+    Задание №2: Принимает строку и возвращает новую строку с обратным порядком слов.
+    '''
+    words = sentence.split()
+    reversed_words = [word[::-1] for word in words]
+    return ' '.join(reversed_words)
+```
+
+**Пример использования**:
+
+```py
+print(reverse_words('Hello world'))        # olleH dlrow
+print(reverse_words('Python is awesome'))  # nohtyP si emosewa
+print(reverse_words('Привет мир'))         # тевирП рим
+```
+
+**Скриншот вывода в консоли**:
+
+![02](../public/day-04/part-02/02.png)
+
+### Задание №3: Палиндром ли?
+
+**Цель**: Реализовать функцию, которая проверяет, является ли строка палиндромом, игнорируя пробелы, знаки препинания и регистр.
+
+**Код задания**:
+
+```py
+import re
+
+def is_palindrome(text: str) -> bool:
+    '''
+    Задание №3: Проверяет, является ли строка палиндромом.
+    '''
+    cleaned_text = re.sub(r'[^\w]', '', text.lower())
+    return cleaned_text == cleaned_text[::-1]
+```
+
+**Пример использования**:
+
+```py
+print(is_palindrome('A man, a plan, a canal: Panama'))  # True
+print(is_palindrome('racecar'))  # True
+print(is_palindrome('hello'))    # False
+print(is_palindrome('А роза упала на лапу Азора'))  # True
+```
+
+**Скриншот вывода в консоли**:
+
+![03](../public/day-04/part-02/03.png)
+
+### Задание №4: Наибольшая общая подпоследовательность двух строк
+
+**Цель**: Реализовать функцию, которая находит наибольшую общую подпоследовательность двух строк.
+
+**Код задания**:
+
+```py
+def find_longest_subsequence(str1: str, str2: str) -> str:
+    '''
+    Задание №4: Находит наибольшую общую подпоследовательность двух строк.
+    '''
+    m, n = len(str1), len(str2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if str1[i - 1] == str2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+    # Восстановление подпоследовательности
+    i, j = m, n
+    result = []
+    while i > 0 and j > 0:
+        if str1[i - 1] == str2[j - 1]:
+            result.append(str1[i - 1])
+            i -= 1
+            j -= 1
+        elif dp[i - 1][j] > dp[i][j - 1]:
+            i -= 1
+        else:
+            j -= 1
+
+    return ''.join(reversed(result))
+```
+
+**Пример использования**:
+
+```py
+print(find_longest_subsequence('ABCDGH', 'AEDFHR'))   # ADH
+print(find_longest_subsequence('AGGTAB', 'GXTXAYB'))  # GTAB
+print(find_longest_subsequence('abcde', 'ace'))       # ace
+```
+
+**Скриншот вывода в консоли**:
+
+![04](../public/day-04/part-02/04.png)
