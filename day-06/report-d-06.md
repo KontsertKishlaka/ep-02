@@ -2,7 +2,7 @@
 
 ---
 
-# Отчет по учебной практике: День №5
+# Отчет по учебной практике: День №6
 
 **Учебная практика**: УП.02. Осуществление интеграции профессиональных модулей
 
@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
 **Скриншот вывода**:
 
-![sun](../public/day-05/sun.png)
+![sun](../public/day-06/sun.png)
 
 ### [Задание №2](./src/turtle_shapes.py): Фигуры
 
@@ -237,10 +237,10 @@ if __name__ == '__main__':
 **Скриншот вывода**:
 
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
-    <img src="../public/day-05/shapes/sqr.png" alt="sqr" style="width: 100%; height: auto;">
-    <img src="../public/day-05/shapes/req.png" alt="req" style="width: 100%; height: auto;">
-    <img src="../public/day-05/shapes/circle.png" alt="circle" style="width: 100%; height: auto;">
-    <img src="../public/day-05/shapes/triangle.png" alt="triangle" style="width: 100%; height: auto;">
+    <img src="../public/day-06/shapes/sqr.png" alt="sqr" style="width: 100%; height: auto;">
+    <img src="../public/day-06/shapes/req.png" alt="req" style="width: 100%; height: auto;">
+    <img src="../public/day-06/shapes/circle.png" alt="circle" style="width: 100%; height: auto;">
+    <img src="../public/day-06/shapes/triangle.png" alt="triangle" style="width: 100%; height: auto;">
 </div>
 
 ### [Задание №3](./src/turtle_amongus.py): Амогус
@@ -379,7 +379,7 @@ if __name__ == '__main__':
 
 **Скриншот вывода в консоли**:
 
-![amogus](../public/day-05/amogus.png)
+![amogus](../public/day-06/amogus.png)
 
 ### [Задание №4](./src/turtle_virus.py): Вирус
 
@@ -428,4 +428,4 @@ if __name__ == '__main__':
 
 **Скриншот вывода в консоли**:
 
-![virus](../public/day-05/virus.png)
+![virus](../public/day-06/virus.png)
